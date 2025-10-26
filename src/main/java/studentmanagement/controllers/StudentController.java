@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 
 @RestController
-@RequestMapping("students")
+@RequestMapping("api")
 public class StudentController {
 
     @Autowired
@@ -53,7 +53,8 @@ public class StudentController {
     }
 
 
-    @GetMapping("/allstudents")
+    @Operation(summary = "Récupérer tous les étudiants")
+    @GetMapping("/students")
     public List<Student> getAllStudents() {
         List<Student> students = studentService.findAll();
         return students;
